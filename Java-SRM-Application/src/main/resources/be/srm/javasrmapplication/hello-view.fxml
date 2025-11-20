@@ -10,15 +10,71 @@
 
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1"
-          xmlns="http://javafx.com/javafx/19"
-          fx:controller="be.srm.javasrmapplication.HelloController"
-          alignment="CENTER" hgap="10" vgap="10">
+          xmlns="http://javafx.com/javafx/21"
+          fx:controller="be.srm.javasrmapplication.controllers.HelloController"
+          hgap="15" vgap="15" alignment="CENTER">
 
     <padding>
-        <Insets top="25" right="25" bottom="25" left="25"/>
+        <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Dit is onze eerste tile voor de CPU-meter -->
-    <Tile fx:id="cpuTile" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <!-- RIJ 1 -->
+
+    <!-- Tile 1: CPU Usage -->
+    <Tile fx:id="cpuUsageTile"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          skinType="GAUGE"
+          title="CPU Usage"
+          unit="\%"
+          value="35.0"
+          threshold="80" />
+
+    <!-- Tile 2: CPU Temperature -->
+    <Tile fx:id="cpuTempTile"
+          GridPane.columnIndex="1" GridPane.rowIndex="0"
+          skinType="GAUGE"
+          title="CPU Temperature"
+          unit="°C"
+          value="58.0"
+          maxValue="100"
+          threshold="85" />
+
+    <!-- Tile 3: GPU Temperature -->
+    <Tile fx:id="gpuTempTile"
+          GridPane.columnIndex="2" GridPane.rowIndex="0"
+          skinType="GAUGE"
+          title="GPU Temperature"
+          unit="°C"
+          value="65.0"
+          maxValue="100"
+          threshold="90" />
+
+
+    <!-- RIJ 2 -->
+
+    <!-- Tile 4: RAM In Gebruik -->
+    <Tile fx:id="ramUsedTile"
+          GridPane.columnIndex="0" GridPane.rowIndex="1"
+          skinType="NUMBER"
+          title="RAM In Use"
+          description="Total: 16 GB"
+          unit="GB"
+          value="7.8" />
+
+    <!-- Tile 5: RAM Beschikbaar -->
+    <Tile fx:id="ramAvailableTile"
+          GridPane.columnIndex="1" GridPane.rowIndex="1"
+          skinType="NUMBER"
+          title="RAM Available"
+          unit="GB"
+          value="8.2" />
+
+    <!-- Tile 6: OS Informatie -->
+    <Tile fx:id="osInfoTile"
+          GridPane.columnIndex="2" GridPane.rowIndex="1"
+          skinType="TEXT"
+          title="Operating System"
+          description="Windows 11 Pro&#10;Version 22H2" />
+    <!-- &#10; is een newline karakter in XML -->
 
 </GridPane>

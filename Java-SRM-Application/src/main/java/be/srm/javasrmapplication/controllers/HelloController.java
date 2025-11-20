@@ -1,19 +1,14 @@
-package be.srm.javasrmapplication;
+package be.srm.javasrmapplication.controllers;
 
 import eu.hansolo.tilesfx.Tile;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import eu.hansolo.tilesfx.skins.GaugeTileSkin;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
-
-import java.sql.Time;
 
 public class HelloController {
 
@@ -28,17 +23,10 @@ public class HelloController {
     public void initialize(){
         System.out.println("Controller werkt!");
 
-        
-        cpuTile.setSkinType(Tile.SkinType.GAUGE);
-        cpuTile.setTitle("CPU Load");
-        cpuTile.setUnit("%");
-        cpuTile.setThreshold(80);
-        cpuTile.setThresholdColor(Color.ORANGERED);
-
         this.prevTicks = processor.getSystemCpuLoadTicks();
-
-        setupTimer();
     }
+
+
 
     private void setupTimer(){
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
@@ -51,9 +39,7 @@ public class HelloController {
     private void updateCpuData(){
         double cpuLoad = processor.getSystemCpuLoadBetweenTicks(prevTicks) * 100;
         this.prevTicks = processor.getSystemCpuLoadTicks();
-
         cpuTile.setValue(cpuLoad);
-
 
     }
 

@@ -10,4 +10,6 @@ module be.srm.javasrmapplication {
 
     opens be.srm.javasrmapplication to javafx.fxml;
     exports be.srm.javasrmapplication;
+    exports be.srm.javasrmapplication.controllers;
+    opens be.srm.javasrmapplication.controllers to javafx.fxml;
 }
