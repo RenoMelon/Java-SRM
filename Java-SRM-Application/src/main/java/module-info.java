@@ -5,6 +5,8 @@ module be.srm.javasrmapplication {
 
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires com.github.oshi;
+    requires java.sql;
 
     opens be.srm.javasrmapplication to javafx.fxml;
     exports be.srm.javasrmapplication;
